@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>회원가입</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+		<link rel="stylesheet" href="/margin_top.css">
+	</head>
+	<body>
+		<div class="container margin-top">
+			<div class="row justify-content-md-center">
+				<div class="col-md-6 col-sm-12">
+					<div class="card">
+						<div class="card-header">
+							회원가입
+						</div>
+						<div class="card-body">
+							<form method="post" action="/auth/signup">
+								<div class="form-group mb-1">
+									<label for="username">아이디(영어, 숫자, -, _)</label>
+									<input type="text" class="form-control" id="username" name="username" placeholder="아이디" minlength="6" maxlength="20">
+								</div>
+								<div class="form-group mb-1">
+									<label for="password">비밀번호(영어 대소문자, 숫자, 특수문자 하나 이상)</label>
+									<input type="password" class="form-control" id="password" name="password" placeholder="비밀번호" minlength="8" maxlength="30">
+								</div>
+								<div class="form-group mb-2">
+									<label for="checkPassword">비밀번호 확인</label>
+									<input type="password" class="form-control" id="checkPassword" name="checkPassword" placeholder="비밀번호 확인">
+								</div>
+								<button type="submit" class="btn btn-primary">회원가입</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+	</body>
+</html>

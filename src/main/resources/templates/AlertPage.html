@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>Alert</title>
+	</head>
+	<body>
+		<h1>Error Page</h1>
+
+		<div th:if="${message}">
+			<p th:text="${message}"></p>
+
+			<script th:inline="javascript">
+                alert([[${message}]]);
+                window.history.back();
+			</script>
+		</div>
+	</body>
+</html>

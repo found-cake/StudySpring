@@ -1,0 +1,28 @@
+version: "3.0"
+
+services:
+  mariadb:
+    image: mariadb:latest
+    container_name: mariadb-container
+    restart: unless-stopped
+    environment:
+      - TZ=Asia/Seoul
+      - MARIADB_ROOT_PASSWORD=!as1234
+      - MARIADB_DATABASE=todolist
+    ports:
+      - "3306:3306"
+  java:
+    image: eclipse-temurin:21-jre
+    container_name: java-app-containe
+    working_dir: /app
+    volumes:
+      - ./build/libs:/app
+    environment:
+      - TZ=Asia/Seoul
+      - DB_PASSWORD=!as1234
+      - DB_NAME=todolist
+    command: [ "java", "-jar", "TodoList.jar" ]
+    depends_on:
+      - mariadb
+    ports:
+      - "8080:8080"
