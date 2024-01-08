@@ -5,8 +5,6 @@ import kr.foundcake.todolist.entity.User;
 import kr.foundcake.todolist.exception.UserSignupException;
 import kr.foundcake.todolist.repository.UserRepo;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.log4j.Log4j;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
