@@ -2,27 +2,28 @@ version: "3.0"
 
 services:
   mariadb:
-    image: mariadb:latest
-    container_name: mariadb-container
-    restart: unless-stopped
-    environment:
-      - TZ=Asia/Seoul
+    image: mariadb:latest # 최신버전 마리아DB 이미지
+    container_name: mariadb-container # 컨테이너 이름
+    restart: unless-stopped # 무슨일이 있어도 종료되면 다시 켜짐
+    environment: # 각종환경변수
+      - TZ=Asia/Seoul # 지역 설정
       - MARIADB_ROOT_PASSWORD=${DB_PASSWORD}
       - MARIADB_DATABASE=${DB_NAME}
+      # 이미지에 따라 비밀번호와 DB 이름 말고도 설정할 수 있지만 따로 찾아보길
     ports:
-      - "3306:3306"
+      - "3306:3306" # host:container
   java:
-    image: eclipse-temurin:21-jre
+    image: eclipse-temurin:21-jre # eclipse termurin 이라는 jre(java runtime environment) 21버전 이미지 따로 빌드할 것도 아니라서 jre
     container_name: java-app-containe
-    working_dir: /app
-    volumes:
+    working_dir: /app # 명령을 실행시킬 기본 디렉토리
+    volumes: # 컨테이너와 호스트 간의 파일과 디렉토리를 공유
       - ./build/libs:/app
     environment:
       - TZ=Asia/Seoul
       - DB_PASSWORD=${DB_PASSWORD}
       - DB_NAME=${DB_NAME}
-    command: [ "java", "-jar", "TodoList.jar" ]
-    depends_on:
+    command: [ "java", "-jar", "TodoList.jar" ] # 실행시킬 명령어
+    depends_on: # 의존성 추가
       - mariadb
     ports:
       - "8080:8080"
