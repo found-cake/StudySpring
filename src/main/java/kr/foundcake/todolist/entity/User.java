@@ -20,6 +20,6 @@ public class User {
 	private String userId;
 
 	@JsonIgnore
-	@Column(name = "password")
+	@Column(name = "password", nullable = false)
 	private String password;
 }
