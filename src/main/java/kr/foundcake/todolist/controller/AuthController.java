@@ -16,12 +16,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class AuthController {
 
 	// 회원 가입에 필요한 서비스
-	private final UserSignupService userSignupService;
+	private final UserSignupService service;
 
 	@PostMapping("/signup")
 	public String signup(Model model, @ModelAttribute SignupRequestDto requestDto) {
 		try {
-			userSignupService.signupUser(requestDto);
+			service.signupUser(requestDto);
 		} catch(UserSignupException e){
 			model.addAttribute("message", e.getMessage());
 			return "AlertPage";

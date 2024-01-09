@@ -32,7 +32,7 @@ public class SecurityConfig {
 		return security
 				.csrf(csrf -> csrf
 						.ignoringRequestMatchers(
-								"/auth/**"
+								"/auth/**", "/user/todo/**"
 						)
 				)
 				.authorizeHttpRequests(authorize -> authorize

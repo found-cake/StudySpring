@@ -1,5 +1,7 @@
 package kr.foundcake.todolist.controller;
 
+import kr.foundcake.todolist.service.TodolistService;
+import lombok.AllArgsConstructor;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -8,8 +10,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.security.Principal;
+
+@AllArgsConstructor
 @Controller
 public class IndexController {
+
+	private final TodolistService service;
 
 	private boolean isAuthenticated() {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -20,8 +27,9 @@ public class IndexController {
 	}
 
 	@GetMapping("/")
-	public String index() {
+	public String index(Principal principal, Model model) {
 		if(isAuthenticated()) {
+			model.addAttribute("todoList", service.getTodoList(principal.getName()));
 			return "todolist";
 		}
 		return "home";
