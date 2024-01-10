@@ -30,11 +30,6 @@ public class SecurityConfig {
 	@Bean
 	public SecurityFilterChain filterChain(HttpSecurity security) throws Exception{
 		return security
-				.csrf(csrf -> csrf
-						.ignoringRequestMatchers(
-								"/auth/**", "/user/**"
-						)
-				)
 				.authorizeHttpRequests(authorize -> authorize
 						.requestMatchers("/user/**", "/setting", "/auth/logout").authenticated()
 						.anyRequest().permitAll()

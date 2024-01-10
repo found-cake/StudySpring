@@ -19,6 +19,7 @@
 						</div>
 						<div class="card-body class">
 							<form method="post" action="/user/changepw" class="mb-3">
+								<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
 								<div class="form-group mb-1">
 									<label for="beforePassword">이전 비밀번호</label>
 									<input type="password" class="form-control" id="beforePassword" name="beforePassword" placeholder="이전 비밀번호">

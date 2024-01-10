@@ -41,7 +41,7 @@ public class IndexController {
 			return "redirect:/";
 		}
 		if(error != null && error.equals("error")) {
-			model.addAttribute(error, error);
+			model.addAttribute("error", error);
 		}
 		return "login";
 	}
