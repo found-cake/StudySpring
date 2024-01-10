@@ -31,21 +31,19 @@ public class TodolistService {
 		return todoRepo.findByUser(usernameEncode(username));
 	}
 
-	public void addTodo(String username, String task) {
+	public boolean addTodo(String username, String task) {
+		if(task.trim().isEmpty()) return false;
 		todoRepo.save(TodoItem.builder()
 				.user(usernameEncode(username))
 				.task(task)
 				.isSuccess(false)
 				.build()
 		);
+		return true;
 	}
 
-	public boolean removeTodo(Long id, String username) {
-		if(todoRepo.existsByIdAndUser(id, usernameEncode(username))) {
-			todoRepo.deleteById(id);
-			return true;
-		}
-		return false;
+	public void removeTodo(Long id, String username) {
+		todoRepo.removeByIdAndUser(id, usernameEncode(username));
 	}
 
 	public boolean setSuccess(Long id, String username) {

@@ -1,5 +1,6 @@
 package kr.foundcake.todolist.repository;
 
+import jakarta.transaction.Transactional;
 import kr.foundcake.todolist.entity.TodoItem;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -13,5 +14,6 @@ public interface TodoRepo extends JpaRepository<TodoItem, Long> {
 
 	List<TodoItem> findByUser(String user);
 
-	boolean existsByIdAndUser(Long id, String user);
+	@Transactional
+	void removeByIdAndUser(Long id, String user);
 }
