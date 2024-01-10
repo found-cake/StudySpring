@@ -12,7 +12,7 @@ import java.util.regex.Pattern;
 
 @RequiredArgsConstructor
 @Service
-public class UserSignupService {
+public class UserService {
 
 	private final Pattern idPattern = Pattern.compile("^[a-zA-Z0-9\\-_]*$");
 

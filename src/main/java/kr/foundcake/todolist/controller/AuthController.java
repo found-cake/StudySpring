@@ -2,7 +2,7 @@ package kr.foundcake.todolist.controller;
 
 import kr.foundcake.todolist.dto.SignupRequestDto;
 import kr.foundcake.todolist.exception.UserSignupException;
-import kr.foundcake.todolist.service.UserSignupService;
+import kr.foundcake.todolist.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class AuthController {
 
 	// 회원 가입에 필요한 서비스
-	private final UserSignupService service;
+	private final UserService service;
 
 	@PostMapping("/signup")
 	public String signup(Model model, @ModelAttribute SignupRequestDto requestDto) {
