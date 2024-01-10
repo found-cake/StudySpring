@@ -12,4 +12,6 @@ public interface TodoRepo extends JpaRepository<TodoItem, Long> {
 	TodoItem findByIdAndUser(Long id, String user);
 
 	List<TodoItem> findByUser(String user);
+
+	void removeByIdAndUser(Long id, String user);
 }
