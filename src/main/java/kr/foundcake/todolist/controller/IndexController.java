@@ -53,4 +53,9 @@ public class IndexController {
 		}
 		return "signup";
 	}
+
+	@GetMapping("/setting")
+	public String setting() {
+		return "setting";
+	}
 }

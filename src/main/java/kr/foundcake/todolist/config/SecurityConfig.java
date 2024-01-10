@@ -32,11 +32,11 @@ public class SecurityConfig {
 		return security
 				.csrf(csrf -> csrf
 						.ignoringRequestMatchers(
-								"/auth/**", "/user/todo/**"
+								"/auth/**", "/user/**"
 						)
 				)
 				.authorizeHttpRequests(authorize -> authorize
-						.requestMatchers("/user/**").authenticated()
+						.requestMatchers("/user/**", "/setting", "/auth/logout").authenticated()
 						.anyRequest().permitAll()
 				)
 				// 로그인 설정

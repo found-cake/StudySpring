@@ -18,7 +18,7 @@
 							회원가입
 						</div>
 						<div class="card-body">
-							<form method="post" action="/auth/signup">
+							<form method="post" action="/auth/signup" class="mb-3">
 								<div class="form-group mb-1">
 									<label for="username">아이디(영어, 숫자, -, _)</label>
 									<input type="text" class="form-control" id="username" name="username" placeholder="아이디" minlength="6" maxlength="20">
@@ -33,6 +33,13 @@
 								</div>
 								<button type="submit" class="btn btn-primary">회원가입</button>
 							</form>
+
+							<a class="icon-link icon-link-hover float-end" style="--bs-link-hover-color-rgb: 25, 135, 84;" href="/">
+								메인으로
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
+									<path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z"/>
+								</svg>
+							</a>
 						</div>
 					</div>
 				</div>
