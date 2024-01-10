@@ -14,7 +14,7 @@ services:
       - "3306:3306" # host:container
   java:
     image: eclipse-temurin:21-jre # eclipse termurin 이라는 jre(java runtime environment) 21버전 이미지 따로 빌드할 것도 아니라서 jre
-    container_name: java-app-containe
+    container_name: java-app-container
     working_dir: /app # 명령을 실행시킬 기본 디렉토리
     volumes: # 컨테이너와 호스트 간의 파일과 디렉토리를 공유
       - ./build/libs:/app
