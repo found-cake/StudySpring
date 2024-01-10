@@ -39,4 +39,20 @@ public class TodolistService {
 				.build()
 		);
 	}
+
+	public void removeTodo(Long id, String username) {
+		todoRepo.removeByIdAndUser(id, usernameEncode(username));
+	}
+
+	public void setSuccess(Long id, String username) {
+		TodoItem todo = todoRepo.findByIdAndUser(id, usernameEncode(username));
+		if(todo == null || todo.isSuccess()) return;
+		todoRepo.save(TodoItem.builder()
+				.id(todo.getId())
+				.user(todo.getUser())
+				.task(todo.getTask())
+				.isSuccess(true)
+				.build()
+		);
+	}
 }
