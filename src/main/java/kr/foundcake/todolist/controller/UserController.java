@@ -19,7 +19,6 @@ public class UserController {
 
 	private final UserService service;
 
-
 	@PostMapping("/changepw")
 	public String changePassword(Principal principal, Model model, @ModelAttribute ChangePasswordRequestDto requestDto) {
 		try {

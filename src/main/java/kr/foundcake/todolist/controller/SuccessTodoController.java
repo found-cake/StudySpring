@@ -11,7 +11,7 @@ import java.security.Principal;
 @RequestMapping("/user/todo")
 public class SuccessTodoController {
 
-	private TodolistService service;
+	private final TodolistService service;
 
 	@PostMapping("/success/{id}")
 	public String updateSuccess(Principal principal, @PathVariable Long id) {
