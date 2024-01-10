@@ -40,13 +40,17 @@ public class TodolistService {
 		);
 	}
 
-	public void removeTodo(Long id, String username) {
-		todoRepo.removeByIdAndUser(id, usernameEncode(username));
+	public boolean removeTodo(Long id, String username) {
+		if(todoRepo.existsByIdAndUser(id, usernameEncode(username))) {
+			todoRepo.deleteById(id);
+			return true;
+		}
+		return false;
 	}
 
-	public void setSuccess(Long id, String username) {
+	public boolean setSuccess(Long id, String username) {
 		TodoItem todo = todoRepo.findByIdAndUser(id, usernameEncode(username));
-		if(todo == null || todo.isSuccess()) return;
+		if(todo == null || todo.isSuccess()) return false;
 		todoRepo.save(TodoItem.builder()
 				.id(todo.getId())
 				.user(todo.getUser())
@@ -54,5 +58,6 @@ public class TodolistService {
 				.isSuccess(true)
 				.build()
 		);
+		return true;
 	}
 }
