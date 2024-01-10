@@ -18,8 +18,8 @@
 							회원가입
 						</div>
 						<div class="card-body">
-							<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
 							<form method="post" action="/auth/signup" class="mb-3">
+								<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
 								<div class="form-group mb-1">
 									<label for="username">아이디(영어, 숫자, -, _)</label>
 									<input type="text" class="form-control" id="username" name="username" placeholder="아이디" minlength="6" maxlength="20">
