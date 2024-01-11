@@ -7,16 +7,16 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name ="todos")
+@Table(name ="todos") // todos란 이름으로 table 생성
 @Getter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class TodoItem {
 
-	@Id
+	@Id //table의 id로 지정
 	@Column(name = "id")
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY) // 자동 생성
 	private Long id;
 
 	@Column(name = "user", nullable = false)

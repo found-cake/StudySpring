@@ -5,6 +5,7 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
+// 비밀번호 변경 요청에 사용
 public class ChangePasswordRequestDto {
 
 	private String beforePassword;

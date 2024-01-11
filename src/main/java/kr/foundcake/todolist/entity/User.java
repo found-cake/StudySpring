@@ -8,7 +8,7 @@ import jakarta.persistence.Table;
 import lombok.*;
 
 @Entity
-@Table(name ="users")
+@Table(name ="users") // users란 이름으로 table 생성
 @Getter
 @Builder
 @AllArgsConstructor

@@ -5,6 +5,7 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
+// 회원가입 요청에 사용
 public class SignupRequestDto {
 
 	private String username;
